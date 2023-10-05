@@ -1,4 +1,13 @@
-url = "https://bytebank.com/cambio?moedaDestino=dolar&quantidade=100&moedaOrigem=real"
+# url = "https://bytebank.com/cambio?moedaDestino=dolar&quantidade=100&moedaOrigem=real"
+
+url = " "
+
+# Sanitização da URL
+url = url.strip()
+
+# Validação da URL
+if url == "":
+    raise ValueError("A URL está vazia")
 
 # Separa base e os parâmetros
 indice_interrogacao = url.find('?')
