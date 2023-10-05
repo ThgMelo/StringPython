@@ -49,11 +49,17 @@ class ExtratorURL:
     def __str__(self):
         return f'{self.url}\nParâmetros: {self.get_url_parametros()}\nURL Base: {self.get_url_base()}'
 
+    def __eq__(self, other):
+        return self.url == other.url
+
 
 url = "https://bytebank.com/cambio?moedaDestino=dolar&quantidade=100&moedaOrigem=real"
 extrator_url = ExtratorURL(url)
+extrator_url2 = ExtratorURL(url)
 valor_quantidade = extrator_url.get_valor_parametro("quantidade")
 print(valor_quantidade)
 
 print(f'O tamanho da URL: {len(extrator_url)}')
 print(extrator_url)
+
+print(extrator_url == extrator_url2) # Por default o método eq retorna true se o endereço de memória for o mesmo (não é), iremos alterar para o método eq retornar true se a URL for igual
